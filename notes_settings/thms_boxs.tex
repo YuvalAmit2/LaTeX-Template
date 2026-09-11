@@ -8,10 +8,10 @@
 \definecolor{corcolor}{RGB}{50, 205, 50}
 \definecolor{notecolor}{RGB}{147, 112, 219}
 \definecolor{quecolor}{RGB}{147, 112, 219}
-\definecolor{exercolor}{RGB}{147, 112, 219}
+\definecolor{exercolor}{RGB}{100, 80, 180}
 \definecolor{conjcolor}{RGB}{30,144,255}
 
-\newcounter{sharedcounter}
+\newcounter{maincounter}
 
 \tcbset{
     mybox/.style={
@@ -68,7 +68,7 @@
 % 5. Cleverref Type Plural
 % 6. Optional format changes
 \NewDocumentCommand{\newboxtype}{m m m m m O{}}{
-\NewTColorBox[use counter=sharedcounter, number within=section, crefname={#4}{#5}]{#1}{O{} O{}}
+\NewTColorBox[use counter=maincounter, number within=section, crefname={#4}{#5}]{#1}{O{} O{}}
 {mybox,
 colframe=#3!50!black,
 colbacktitle=#3!10,
@@ -85,19 +85,16 @@ title=\ifblank{##1}{#2 \hfill \thetcbcounter}{\textit{##1} \hfill  \thetcbcounte
 \newboxtype{cor}{Corollary}{corcolor}{Corollary}{Corollaries}
 \newboxtype{prop}{Proposition}{propcolor}{Proposition}{Propositions}
 \newboxtype{rmk}{Remark}{rmkcolor}{Remark}{Remarks}
-% \newboxtype{ex}{Example}{excolor}{Example}{Examples}[exbox]
-\newboxtype{que}{Question}{quecolor}{Question}{Questions}
-\newboxtype{exer}{Exercise}{exercolor}{Exercise}{Exercises}
 \newboxtype{conj}{Conjecture}{conjcolor}{Conjecture}{Conjectures}
 
-\NewTColorBox[use counter=sharedcounter, number within=section, crefname={Example}{Examples}]{ex}{O{} O{}}
-{mybox,
-exbox,
-colframe=excolor!50!black,
-coltitle=excolor,
-title=\hspace{-1.5pt}\ifblank{#1}{Example \thetcbcounter}{\textit{#1}},
-#2
-}
+% \NewTColorBox[use counter=maincounter, number within=section, crefname={Example}{Examples}]{ex}{O{} O{}}
+% {mybox,
+% exbox,
+% colframe=excolor!50!black,
+% coltitle=excolor,
+% title=\hspace{-1.5pt}\ifblank{#1}{Example \thetcbcounter}{\textit{#1}},
+% #2
+% }
 
 \NewTColorBox{note}{O{} O{}}
 {mybox,
@@ -115,14 +112,64 @@ title=\ifblank{#1}{Note}{#1},
 \end{centering}
 }
 
-\newtheoremstyle{boldExercise}
-{6pt} % Space above
-{6pt} % Space below
-\bfseries % Body font
-{} % Indent amount
-{\color{Plum}\bfseries} % Head font
-{:} % Punctuation after theorem head
-{.5em} % Space after theorem head
-{} % Theorem head spec 
-\theoremstyle{boldExercise}
-\newtheorem{exercise}{Exercise}
+% You can ignore everything from here to \declaretheoremstyle. There were some conflicts with TeX live 2026 and thmtools that were causing unnecessary compiling errors.
+\makeatletter
+\@ifundefined{newcounteralias}{}{%
+  \renewcommand\thmt@autorefsetup{\@xa\def\csname\thmt@envname autorefname\@xa\endcsname\@xa{\thmt@thmname}}%
+}
+\makeatother
+
+\counterwithin{maincounter}{section}
+
+\declaretheoremstyle[
+spaceabove=6pt, 
+spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont\itshape,
+postheadspace=5pt,
+headpunct=.
+]{regular}
+
+% Custom command for quickly building a new theorem type. The arguments are as follows:
+% 1. Environment Name
+% 2. Display Name
+% 3. Uppercase reference
+% 4. Uppercase references
+% 5. Color
+% 6. Counter
+% 7. Optional arguments
+\NewDocumentCommand{\newthmtype}{m m m m m m O{}}{
+\declaretheorem[name=\color{#5}#2,
+sibling=#6,
+Refname={#3,#4},
+style=regular,
+#7
+]{#1}
+\declaretheorem[name=\color{#5}#2,
+Refname={#3,#4},
+style=regular,
+numbered=no,
+#7
+]{#1*}
+}
+
+\newthmtype{ex}{Example}{Example}{Examples}{excolor}{maincounter}
+\newthmtype{que}{Question}{Question}{Questions}{quecolor}{maincounter}
+\newthmtype{claim}{Claim}{Claim}{Claims}{black}{maincounter}
+
+\newcounter{exercisecounter}
+\newthmtype{exercise}{Exercise}{Exercise}{Exercises}{exercolor}{exercisecounter}
+
+
+% \newtheoremstyle{boldExercise}
+% {6pt} % Space above
+% {6pt} % Space below
+% \bfseries % Body font
+% {} % Indent amount
+% {\color{Plum}\bfseries} % Head font
+% {:} % Punctuation after theorem head
+% {.5em} % Space after theorem head
+% {} % Theorem head spec 
+% \theoremstyle{boldExercise}
+% \newtheorem{exercise}{Exercise}
