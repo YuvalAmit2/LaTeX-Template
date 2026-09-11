@@ -74,12 +74,12 @@ title=\ifblank{##1}{#2 \hfill \thetcbcounter}{\textit{##1} \hfill  \thetcbcounte
 \newboxtype{rmk}{Remark}{rmkcolor}{Remark}{Remarks}
 \newboxtype{conj}{Conjecture}{conjcolor}{Conjecture}{Conjectures}
 
-\NewTColorBox{note}{O{} O{}}
+\NewTColorBox[use counter=maincounter, number within=section]{notebox}{O{} O{}}
 {mybox,
 colframe=notecolor!50!black,
 colbacktitle=notecolor!10,
 coltitle=notecolor,
-title=\ifblank{#1}{Note}{#1},
+title=\ifblank{#1}{Note \hfill \thetcbcounter}{#1 \hfill \thetcbcounter},
 #2,
 }
 

@@ -61,7 +61,7 @@
 \renewcommand{\tilde}{\widetilde}
 
 % Commands With Inputs
-\newcommand{\m}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\matr}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\case}[1]{\begin{cases}#1\end{cases}}
 \newcommand{\leg}[2]{\left ( \frac{#1}{#2} \right )}
 \newcommand{\partder}[3][]{\frac{\partial^{#1}#2}{\partial #3^{#1}}}
@@ -76,6 +76,7 @@
 \newcommand\floor[1]{\left \lfloor #1 \right \rfloor }
 \newcommand\paren[1]{\left ( #1 \right ) }
 \newcommand\abs[1]{\left | #1 \right | }
+\newcommand\norm[1]{\left\lVert #1 \right\rVert}
 \newcommand\braks[1]{\left [ #1 \right ] }
 \newcommand\setbar{\: \middle |\: }
 \renewcommand{\mod}[1]{\ \ \mathrm{mod}\ #1}
@@ -120,8 +121,8 @@
 \begin{document}
 \maketitle
 
-
-
-
+\begin{notebox}[Custom]
+    Hello!
+\end{notebox}
 
 \end{document}
