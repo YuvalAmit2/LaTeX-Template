@@ -43,20 +43,6 @@
         size=fbox,
         before skip=5pt,
         after skip=5pt
-    },
-    exbox/.style={
-        sharp corners,
-        % leftrule=-1pt,
-        % rightrule=-1pt,
-        colbacktitle=white,
-        toprule at break=0pt,
-        bottomrule at break=0pt,
-        attach boxed title to top left={yshift=-0.5pt},
-        boxed title style={
-            sharp corners,
-            boxrule=0.5pt,
-            bottomrule=-0.5pt
-        }
     }
 }
 
@@ -87,15 +73,6 @@ title=\ifblank{##1}{#2 \hfill \thetcbcounter}{\textit{##1} \hfill  \thetcbcounte
 \newboxtype{rmk}{Remark}{rmkcolor}{Remark}{Remarks}
 \newboxtype{conj}{Conjecture}{conjcolor}{Conjecture}{Conjectures}
 
-% \NewTColorBox[use counter=maincounter, number within=section, crefname={Example}{Examples}]{ex}{O{} O{}}
-% {mybox,
-% exbox,
-% colframe=excolor!50!black,
-% coltitle=excolor,
-% title=\hspace{-1.5pt}\ifblank{#1}{Example \thetcbcounter}{\textit{#1}},
-% #2
-% }
-
 \NewTColorBox{note}{O{} O{}}
 {mybox,
 colframe=notecolor!50!black,
@@ -112,7 +89,9 @@ title=\ifblank{#1}{Note}{#1},
 \end{centering}
 }
 
-% You can ignore everything from here to \declaretheoremstyle. There were some conflicts with TeX live 2026 and thmtools that were causing unnecessary compiling errors.
+% AI-generated code (\makeatletter to \makeatother)
+% Fixes a compatability issue with TeX Live 2026 and thmtools that was causing compliling errors.
+
 \makeatletter
 \@ifundefined{newcounteralias}{}{%
   \renewcommand\thmt@autorefsetup{\@xa\def\csname\thmt@envname autorefname\@xa\endcsname\@xa{\thmt@thmname}}%
@@ -130,6 +109,21 @@ bodyfont=\normalfont\itshape,
 postheadspace=5pt,
 headpunct=.
 ]{regular}
+
+% AI-generated code (\makeatletter to \makeatother): 
+% This makes it so thmtools environments can have their options edited (namely, they can be labeled) with a second optional argument, much like my thmbox envrionments.
+\makeatletter
+\newcommand\addkeyarg[1]{%
+  \expandafter\let\csname orig@env@#1\expandafter\endcsname\csname #1\endcsname
+  \expandafter\RenewDocumentCommand\csname #1\endcsname{O{} O{}}{%
+    \ifblank{##2}%
+      {\ifblank{##1}{\@nameuse{orig@env@#1}}%
+                    {\@nameuse{orig@env@#1}[##1]}}%
+      {\ifblank{##1}{\@nameuse{orig@env@#1}[##2]}%
+                    {\@nameuse{orig@env@#1}[name={##1},##2]}}%
+  }%
+}
+\makeatother
 
 % Custom command for quickly building a new theorem type. The arguments are as follows:
 % 1. Environment Name
@@ -152,6 +146,8 @@ style=regular,
 numbered=no,
 #7
 ]{#1*}
+\addkeyarg{#1}  % AI addition
+\addkeyarg{#1*}  % AI addition
 }
 
 \newthmtype{ex}{Example}{Example}{Examples}{excolor}{maincounter}
