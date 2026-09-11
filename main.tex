@@ -121,20 +121,14 @@
 \maketitle
 
 
-\begin{ex}[Fermat][label=ex:testing]
-    Howdy!
-\end{ex}
+Next change I want to make: notice how there is spacing between two lines separated by a blank line in the source code. Namely, if I write a bunch of text, then the lines are close together...
 
-\newpage
+but when I create two new lines, there is additional spacing which I believe is induced renewing the baselinestretch in \verb|notes_settings/notes_stuff.tex|. This is good, and I want it like this. However, look at what happens when I have a line break in a box environment:
+\begin{thm}
+    I can have lots of text which fills up the line and then proceeds to wrap into the next line (more and more text is now added to fill in the gap).
 
-\begin{ex}[Ferm][label=ex:test2]
-    Howdy!
-\end{ex}
-
-\newpage
-
-\Cref{ex:test2}
-
+    However, if I try to break the line, it does not create the extra spacing like before.
+\end{thm}
 
 
 
