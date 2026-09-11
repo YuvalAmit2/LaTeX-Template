@@ -1,0 +1,20 @@
+% Font and Spacing
+\usefonttheme{serif}
+% \usefonttheme{professionalfonts}
+\usepackage{mathpazo} % Font
+\renewcommand{\baselinestretch}{1.2} % Line spacing
+\addtolength{\jot}{4pt} % Spacing in math
+\usepackage[skip=2pt plus2pt minus1pt]{parskip} % Paragraph spacing
+\AtBeginDocument{
+  \setlength{\abovedisplayskip}{6pt plus 2pt minus 2pt}
+  \setlength{\belowdisplayskip}{6pt plus 2pt minus 2pt}
+  \setlength{\abovedisplayshortskip}{0pt plus 2pt}
+  \setlength{\belowdisplayshortskip}{3pt plus 2pt minus 2pt}} % Prevent over-spacing display math
+
+% References
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=Turquoise}
+
+% Beamer settings
+\usetheme{Madrid}
+\setbeamertemplate{blocks}[rounded][shadow=false]

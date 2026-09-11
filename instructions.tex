@@ -1,0 +1,259 @@
+% Notetaking:
+\documentclass[10pt]{article}
+\input{preamble}
+\input{notes_settings/notes_stuff}
+\input{notes_settings/thms_boxs}
+\title{How to Use This Template}
+\author{Yuval Amit}
+\date{}
+
+% Papers:
+% \documentclass[11pt, reqno]{amsart}
+% \input{preamble}
+% \input{paper_settings/paper_stuff}
+% \input{paper_settings/thms_setup}
+% \title{Title}
+% \author{Yuval Amit}
+% \date{\today}
+% \thanks{}
+% \address{}
+% \email{}
+
+% Beamer:
+% \documentclass[11pt]{beamer}
+% \input{preamble}
+% \input{presentation_settings/presentation_stuff}
+% \title[Short Title]{Title}
+% % \subtitle{A short story}
+% \author[Shortened Names]{Yuval~Amit\inst{1} \and Author~2\inst{2}}
+% \institute[short inst]
+% {
+%   \inst{1}
+%   Department of Mathematics\\
+%   University of Maryland, College Park
+%   \and
+%   \inst{2}%
+%   Department of Mathematics\\
+%   College University
+% }
+% \date[Conf] % (optional)
+% {Conference, Date}
+
+
+% Common Shorthand Commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\D}{\mathbb{D}}
+\renewcommand{\P}{\mathbb{P}}
+
+\newcommand{\mb}{\mathbb}
+\newcommand{\mc}{\mathcal}
+\newcommand{\mf}{\mathfrak}
+\newcommand{\ul}{\underline}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\Wedge}{\bigwedge\nolimits}
+\renewcommand{\bar}{\overline}
+\renewcommand{\hat}{\widehat}
+
+% Commands With Inputs
+\newcommand{\m}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\case}[1]{\begin{cases}#1\end{cases}}
+\newcommand{\leg}[2]{\left ( \frac{#1}{#2} \right )}
+\newcommand{\partder}[3][]{\frac{\partial^{#1}#2}{\partial #3^{#1}}}
+% Arrows
+\newcommand{\arr}[1][]{\xrightarrow{#1}}
+\newcommand{\inj}[1][]{\xhookrightarrow{#1}}
+\newcommand{\surj}[1][]{\xrightarrow{#1}\mathrel{\mkern-14mu}\rightarrow}
+\newcommand{\maps}[1][]{\xmapsto{#1}}
+% Brackets
+\newcommand\angles[1]{\left \langle #1 \right \rangle}
+\newcommand\brax[1]{\left \{ #1 \right \} }
+\newcommand\floor[1]{\left \lfloor #1 \right \rfloor }
+\newcommand\paren[1]{\left ( #1 \right ) }
+\newcommand\abs[1]{\left | #1 \right | }
+\newcommand\braks[1]{\left [ #1 \right ] }
+% Common Math Words
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\nul}{\operatorname{null}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\img}{\operatorname{img}}
+\newcommand{\Img}{\operatorname{Img}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\ran}{\operatorname{ran}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Span}{\operatorname{Span}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\proj}{\operatorname{proj}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\tors}{\operatorname{tors}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Specm}{\operatorname{Specm}}
+
+\begin{document}
+\maketitle
+
+Welcome! Here's a quick tutorial on how to use my template.
+
+\section{Modes}
+
+This template has three modes:
+\begin{itemize}
+    \item Notes mode: used for course notes and problem sets. Prioritizes readability (and color!)
+    \item Paper mode: used for papers (duh)
+    \item Presentation mode: used for beamer presentations
+\end{itemize}
+If you are using this template on your own, you can switch between these three modes by commenting and uncommenting the corresponding code at the top of main.tex.
+
+If you're collaborating with me on something, chances are we're already in the correct mode, so no need to mess with it.
+
+\section{Commands}
+
+Like most templates, this one has a large list of custom commands. Note that the file main.tex includes almost all my commands for writing math. Normally, this is something one would put in a preamble file, but I write primarily with Overleaf's live math display in the text editor, which requires me to define those commands in the same document I write in. If you're using this template in almost any other way, I'd recommend moving these to preamble.tex or elsewhere.
+
+Here's a quick reference:
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c|c|c}
+Command & Output & Command & Output
+\\ \hline \verb|\N| & $\N$
+& \verb|\mb| & \verb|\mathbb|
+\\ \verb|\mc| & \verb|\mathcal|
+& \verb|\mf| & \verb|\mathfrak|
+\\ \verb|\ul| & \verb|\underline|
+& \verb|\veps| & $\veps$
+\\ \verb|\Wedge| & $\Wedge$
+& \verb|\bar| & \verb|\overline|
+\\ \verb|hat| & \verb|\widehat|
+& \verb|\m{}| & pmatrix
+\\ \verb|\cases{}| & cases
+& \verb|\leg{p}{q}| & $\leg{p}{q}$
+\\ \verb|\partder[2]{x}{y}| & $\partder[2]{x}{y}$
+& \verb|\arr[a]| & $\arr[a]$
+\\ \verb|\inj[a]| & $\inj[a]$
+& \verb|\surj[a]| & $\surj[a]$
+\\ \verb|\maps[a]| & $\maps[a]$
+& \verb|\angles{a}| & $\angles{a}$
+\\ \verb|\brax{a}| & $\brax{a}$
+& \verb|\floor{a}| & $\floor{a}$
+\\ \verb|\paren{a}| & $\paren{a}$
+& \verb|\abs{a}| & $\abs{a}$
+\\ \verb|\braks{a}| & $\braks{a}$
+\end{tabular}
+\end{table}
+
+\section{Theorem-like Environments}
+\subsection{Notes Mode}
+The biggest difference between notes mode and paper mode is the format of ``theorem-like'' environments, which is what I call environments like theorems, definitions, examples, etc.
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\begin{<type>}[custom_name][extra_optional_args]
+   text
+\end{<type>}
+
+% <type> can be: thm, lem, ex, defn, prop, rmk, cor, note, que, exer, conj
+\end{lstlisting}
+
+The first optional argument is used to give the environment a custom name. The second optional argument is for making any changes/addition to the underlying tcolorbox environment (most commonly, adding a label).
+
+\begin{defn}
+    This is a colorful \textbf{box}!
+\end{defn}
+
+\begin{ex}
+    These boxes are colorful
+\end{ex}
+
+\begin{thm}[Fermat's Last Theorem][label=thm:fermat]
+    The equation $a^n+b^n=c^n$ has no non-trivial integer solutions for $n \geq 3$.
+\end{thm}
+
+You can reference thm-likes with \verb|\cref{label}|. For example, \cref{thm:fermat}.
+
+There are a few other special cases for environments. 
+
+The \verb|note| environment says ``Note'' by default, and has no number. The first optional argument gives it a different name, so it can be used for general purposes. The second optional argument is the same as the rest of the boxes.
+
+\begin{note}[Notation]
+    We write $\N = \{0,1,\dots\}$.
+\end{note}
+
+The \verb|exercise| environment works very differently. It's visually distinct, takes no optional arguments, and is not numbered by section.
+
+\begin{exercise}
+    Prove that every finite integral domain is a field.
+\end{exercise}
+
+The \verb|entry| environment is similar to exercise, but can be used for any custom name. It is \textbf{TODO}
+
+See \verb|notes_settings/thms_boxs.tex| for the source code.
+
+\subsection{Paper Mode}
+
+Due the LaTeX limitations, I cannot switch the settings of this document in the middle, so unfortunately I can't explicitly show the thm-like environments for Notes mode, Paper mode, and Presentation mode at the same time.
+
+Here's how to make a thm-like in Paper mode:
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\begin{<type>}[custom_name] \label{...}
+   text
+\end{<type>}
+
+% <type> can be: thm, prop, rmk, cor, defn, lem, ex, que, exer, conj
+% custom_name and \label{} are both optional
+\end{lstlisting}
+
+These environments are automatically numbered within section. To make a thm-like without a number, place a \verb|*| next to \verb|<type>|:
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\begin{<type>*}[custom_name]
+   text
+\end{<type>*}
+
+% note that a thm-like without a number can't be referenced with \cref
+\end{lstlisting}
+
+See \verb|paper_settings/thms_setup.tex| for the source code.
+
+\subsection{Presentation Mode}
+
+When using Beamer, I've found it's best to stick with the native block environments rather than creating custom thm-likes. The block environments look more natural, and don't need fancy features like numbering and referencing. To make a frame (a slide) and a block (a ``thm-like''):
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\begin{frame}{Frame Title}
+    \begin{block}{Custom Name}
+        Text
+    \end{block}
+\end{frame}
+\end{lstlisting}
+
+\begin{enumerate}[(i)]
+\item If $Z_k = o(T_k)$, then $G_k$ is product-dominant for sufficiently large $k$.
+        \item If $T_k\cdot \sqrt 3^{R_k/Z_k} = o\paren{Z_k}$, then $G_k$ is quotient-dominant for sufficiently large $k$.
+        \item This is a regular long list of text, with lots of text and $math$
+        \item Here's another long list of words, alphabetically
+\end{enumerate}
+
+
+
+\end{document}

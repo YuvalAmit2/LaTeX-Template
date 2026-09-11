@@ -1,0 +1,35 @@
+% References
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+\hypersetup{colorlinks=true,linkcolor=blue, citecolor=blue}
+
+\numberwithin{equation}{section}
+
+% Font and Spacing
+\usepackage{mathpazo} % Font
+\renewcommand{\baselinestretch}{1.25} % Line spacing
+\addtolength{\jot}{4pt} % Spacing in math
+\usepackage[skip=3pt plus2pt minus1pt]{parskip} % Paragraph spacing
+\AtBeginDocument{
+  \setlength{\abovedisplayskip}{6pt plus 2pt minus 2pt}
+  \setlength{\belowdisplayskip}{6pt plus 2pt minus 2pt}
+  \setlength{\abovedisplayshortskip}{0pt plus 2pt}
+  \setlength{\belowdisplayshortskip}{3pt plus 2pt minus 2pt}} % Prevent over-spacing display math
+
+% Page dimensions
+\usepackage[paperheight=11in,
+   paperwidth=8.5in,
+   top=10mm,
+   bottom=20mm,
+   left=26mm,
+   right=26mm]{geometry}
+
+% Formats the title
+\usepackage{titling}
+\pretitle{\centering \LARGE}
+\posttitle{\centering \par\vspace{0.5em}} 
+\preauthor{\centering \large}
+\postauthor{\centering \par\vspace{0.5em}}
+\predate{\centering \large}
+\postdate{\centering\par\vspace{3em}}
+\renewcommand{\maketitlehookd}{\vspace{-1cm}}
