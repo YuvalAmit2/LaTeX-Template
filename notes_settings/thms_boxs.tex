@@ -157,3 +157,26 @@ numbered=no,
 
 \newcounter{exercisecounter}
 \newthmtype{exercise}{Exercise}{Exercise}{Exercises}{exercolor}{exercisecounter}
+
+% AI-generated code: creates a thmtools environment which has a customizable name, similar to notebox.
+\newcommand\notethmname{Note}
+\declaretheorem[name=\color{notecolor}\protect\notethmname,
+sibling=maincounter,
+Refname={Note,Notes},
+style=regular
+]{notethminner}
+\declaretheorem[name=\color{notecolor}\protect\notethmname,
+Refname={Note,Notes},
+style=regular,
+numbered=no
+]{notethminner*}
+
+\NewDocumentEnvironment{notethm}{O{} O{}}
+{\ifblank{#1}{}{\renewcommand\notethmname{#1}}%
+ \ifblank{#2}{\notethminner}{\notethminner[#2]}}
+{\endnotethminner}
+
+\NewDocumentEnvironment{notethm*}{O{} O{}}
+{\ifblank{#1}{}{\renewcommand\notethmname{#1}}%
+ \ifblank{#2}{\csname notethminner*\endcsname}{\csname notethminner*\endcsname[#2]}}
+{\csname endnotethminner*\endcsname}
