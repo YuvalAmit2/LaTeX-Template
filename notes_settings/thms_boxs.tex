@@ -64,6 +64,15 @@ title=\ifblank{##1}{#2 \hfill \thetcbcounter}{\textit{##1} \hfill  \thetcbcounte
 ##2,
 #6
 }
+\NewTColorBox{#1*}{O{} O{}}
+{mybox,
+colframe=#3!50!black,
+colbacktitle=#3!10,
+coltitle=#3,
+title=\ifblank{##1}{#2}{\textit{##1}},
+##2,
+#6
+}
 }
 
 \newboxtype{thm}{Theorem}{thmcolor}{Theorem}{Theorems}
@@ -80,6 +89,15 @@ colframe=notecolor!50!black,
 colbacktitle=notecolor!10,
 coltitle=notecolor,
 title=\ifblank{#1}{Note \hfill \thetcbcounter}{#1 \hfill \thetcbcounter},
+#2,
+}
+
+\NewTColorBox{notebox*}{O{} O{}}
+{mybox,
+colframe=notecolor!50!black,
+colbacktitle=notecolor!10,
+coltitle=notecolor,
+title=\ifblank{#1}{Note}{#1},
 #2,
 }
 
