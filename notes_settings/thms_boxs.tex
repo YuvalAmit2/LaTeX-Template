@@ -198,3 +198,6 @@ numbered=no
 {\ifblank{#1}{}{\renewcommand\notethmname{#1}}%
  \ifblank{#2}{\csname notethminner*\endcsname}{\csname notethminner*\endcsname[#2]}}
 {\csname endnotethminner*\endcsname}
+
+% Similar to proof but with the word solution
+\newenvironment{solution}{\textit{Solution.}}{\hfill $\square$}
