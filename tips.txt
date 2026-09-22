@@ -1,11 +1,3 @@
-The file main.tex includes almost all my commands for writing math. Normally, this is something one would put in a preamble file, but I write primarily with Overleaf's live math display in the text editor, which requires me to define those commands in the same document I write in. If you're using this template in almost any other way, I'd recommend moving these to preamble.tex or elsewhere
-
-
---Putting TikZ in TColorBox--
-Select "ampersand replacement" in quiver
-Mathcha should work fine
-
-
 --Writing one line on top of another--
 \substack{\\}
 
