@@ -1,7 +1,26 @@
 % References
 \usepackage{hyperref}
 \usepackage[nameinlink]{cleveref}
-\hypersetup{colorlinks=true,linkcolor=blue, citecolor=blue}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=cyan}
+
+\usepackage{titlesec}
+\titlelabel{ \thetitle.\hspace{0.8em}}
+
+% Page dimensions
+\usepackage[paperheight=11in,
+   paperwidth=8.5in,
+   top=20mm,
+   headheight=15mm,
+   bottom=20mm,
+   left=26mm,
+   right=26mm]{geometry}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
 
 % Font and Spacing
 \usepackage{mathpazo} % Font
@@ -15,21 +34,15 @@
   \setlength{\abovedisplayshortskip}{2pt plus 2pt minus 1pt}
   \setlength{\belowdisplayshortskip}{6pt plus 2pt minus 2pt}} 
 
-% Page dimensions
-\usepackage[paperheight=11in,
-   paperwidth=8.5in,
-   top=10mm,
-   bottom=20mm,
-   left=26mm,
-   right=26mm]{geometry}
-
 % AI generated (\usepackage... to renewcommand...)
 % Formats the spacing of the title
 \usepackage{titling}
 \pretitle{\centering \LARGE}
-\posttitle{\centering \par\vspace{0.5em}} 
+\posttitle{\centering \par\vspace{0.3em}} 
 \preauthor{\centering \large}
 \postauthor{\centering \par\vspace{0.5em}}
 \predate{\centering \large}
 \postdate{\centering\par\vspace{3em}}
 \renewcommand{\maketitlehookd}{\vspace{-1cm}}
+
+
