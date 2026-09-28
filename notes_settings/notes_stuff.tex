@@ -1,12 +1,29 @@
-% References
+%%% References %%%
 \usepackage{hyperref}
 \usepackage[nameinlink]{cleveref}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=cyan}
 
+%%% Sections of Table of Contents %%%
+% Customize section formatting
 \usepackage{titlesec}
-\titlelabel{ \thetitle.\hspace{0.8em}}
+\titlelabel{ \thetitle.\hspace{0.5em}}
 
-% Page dimensions
+% Table of Contents
+\usepackage{tocloft}
+% Dots from item to page
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftdotsep}{2}   
+
+% Spacing between ToC items
+\setlength{\cftbeforetoctitleskip}{0pt} % B4 title
+\setlength{\cftaftertoctitleskip}{1em} % B4 first entry
+\setlength{\cftbeforesecskip}{6pt} % After section
+\setlength{\cftbeforesubsecskip}{0pt} 
+% B4 subsection
+\setlength{\cftbeforesubsubsecskip}{0pt}  % B4 subsection (short)
+
+
+%%% Page dimensions %%%
 \usepackage[paperheight=11in,
    paperwidth=8.5in,
    top=20mm,
@@ -15,17 +32,19 @@
    left=26mm,
    right=26mm]{geometry}
 
+%%% Headers %%%
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
-\fancyhead[L]{\leftmark}
+\fancyhead[L]{\S\thesection. \leftmark}
 \fancyhead[R]{\thepage}
+\setlength{\headsep}{14pt}
 
 % Font and Spacing
 \usepackage{mathpazo} % Font
 \renewcommand{\baselinestretch}{1.25} % Line spacing
-% \addtolength{\jot}{4pt} % Spacing in math
+\addtolength{\jot}{2pt} % Spacing in math
 \usepackage[skip=3pt plus2pt minus1pt]{parskip} % Paragraph spacing
 % Prevent over-spacing display math
 \AtBeginDocument{
